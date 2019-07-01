@@ -90,7 +90,7 @@ module.exports = (app) => {
     // show articles after scraping
     app.get('/articles', (req, res) => {
         db.Article.find({})
-            .sort({ timestamp: -1 })
+            .sort({ timestamp: 1 })
             .then((dbArticle) => {
                 let articleObj = { article: dbArticle };
 

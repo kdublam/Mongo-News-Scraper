@@ -1,13 +1,22 @@
+body{
+    background-color: black;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
 .navbar {
-    background-color: #ffd230;
+    background-color: #DA291C;
 }
 
 .jumbotron {
-    background: url(../img/bg-bbc.png) no-repeat center center fixed; 
-    -webkit-background-size: cover; 
+    background: url(../img/ot.jpg) no-repeat center center fixed; 
+    /* -webkit-background-size: cover; 
     -moz-background-size: cover; 
-    -o-background-size: cover; 
-    background-size: cover;
+    -o-background-size: cover;  */
+    min-height: 450px;
+    background-size: 100%;
     color: white;
 }
 
@@ -20,4 +29,9 @@
 
 .material-icons {
     color: red;
+}
+
+#artCon{
+    background-color: black;
+    color: white;
 }

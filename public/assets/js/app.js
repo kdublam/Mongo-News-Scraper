@@ -1,4 +1,4 @@
-$(()=>{
+// $(()=>{
     // declare functions
     const scrapeArticles = ()=>{
         $.get('/scrape')
@@ -136,4 +136,4 @@ $(()=>{
     // handle click events for elements created dynamically
     $(document).on('click', '.btn-save-note', saveNote);
     $(document).on('click', '.material-icons', deleteNote);
-});
+// });
