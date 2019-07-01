@@ -56,20 +56,6 @@ module.exports = (app) => {
                     result.link = link;
                     result.summary = summary;
 
-                    // result.title = $(this)
-                    //     .find(".realStory")
-                    //     .text();
-
-                    // result.link = $(this)
-                    //     .find(".realStory")
-                    //     .attr("href");
-
-                    // result.link = "https://www.espn.com" + result.link
-
-                    // result.summary = $(this)
-                    //     .children("p")
-                    //     .text();
-
                     // create new Article
                     db.Article.create(result)
                         .then((dbArticle) => {
