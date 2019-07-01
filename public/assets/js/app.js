@@ -1,45 +1,45 @@
-// $(()=>{
-    // declare functions
-    const scrapeArticles = ()=>{
-        $.get('/scrape')
-        .then((data)=>{
+// declare functions
+const scrapeArticles = () => {
+    $.get('/scrape')
+        .then((data) => {
             $('body').html(data);
         });
-    };
+};
 
-    const saveArticle = function() {
-        let id = $(this).data('id');
+const saveArticle = function () {
+    let id = $(this).data('id');
 
-        $.ajax({
-            url: `/article/${id}`,
-            method: 'PUT'
-        })
-        .then((data)=>{
+    $.ajax({
+        url: `/article/${id}`,
+        method: 'PUT'
+    })
+        .then((data) => {
             location.reload();
         });
-    };
+};
 
-    const removeArticle = function() {
-        let id = $(this).data('id');
-        
-        $.ajax({
-            url: `/article/remove/${id}`,
-            method: 'PUT'
-        })
-        .then((data)=>{
+const removeArticle = function () {
+    let id = $(this).data('id');
+
+    $.ajax({
+        url: `/article/remove/${id}`,
+        method: 'PUT'
+    })
+        .then((data) => {
             location.reload();
         });
-    };
+};
 
-    const viewNotes = function() {
-        let articleId = $(this).data('id');
+const viewNotes = function () {
+    let articleId = $(this).data('id');
+    // console.log(articleId)
 
-        // send request to get article's notes if exist
-        $.ajax({
-            url: `/article/${articleId}`,
-            method: 'GET'
-        })
-        .then((data)=>{
+    // send request to get article's notes if exist
+    $.ajax({
+        url: `/article/${articleId}`,
+        method: 'GET'
+    })
+        .then((data) => {
             // create modal with article id
             $('.modal-content').html(`
                 <div class="modal-header">
@@ -69,7 +69,7 @@
             else {
                 let notes = data.note;
                 // loop through notes and append to modal
-                notes.forEach(note =>{
+                notes.forEach(note => {
                     $('.list-group').append(`
                         <li class="list-group-item justify-content-between">
                             ${note.body}
@@ -78,62 +78,61 @@
                     `);
                 });
             }
-            
+
             $('.modal').modal('show');
         });
-    };
+};
 
-    const saveNote = function() {
-        let id = $(this).data('id');
-        let content = $('.note-content').val().trim();
+const saveNote = function () {
+    let id = $(this).data('id');
+    let content = $('.note-content').val().trim();
 
-        if (content) {
-            $.ajax({
-                url: `/note/${id}`,
-                method: 'POST',
-                data: {body: content}
-            })
-            .then((data)=>{
+    if (content) {
+        $.ajax({
+            url: `/note/${id}`,
+            method: 'POST',
+            data: { body: content }
+        })
+            .then((data) => {
                 // clear textarea
                 $('.note-content').val('');
                 // hide modal
                 $('.modal').modal('hide');
             });
-        }
-        else {
-            $('.note-content').val('');
-            return;
-        }
-    };
+    }
+    else {
+        $('.note-content').val('');
+        return;
+    }
+};
 
-    const deleteNote = function() {
-        let id = $(this).data('id');
+const deleteNote = function () {
+    let id = $(this).data('id');
 
-        $.ajax({
-            url: `/note/${id}`,
-            method: 'DELETE'
-        })
-        .then((data)=>{
+    $.ajax({
+        url: `/note/${id}`,
+        method: 'DELETE'
+    })
+        .then((data) => {
             // hide modal
             $('.modal').modal('hide');
         });
-    };
+};
 
-    // hide scrape button if on page 'saved'
-    if (window.location.href.includes('saved')) {
-        $('.scrape').hide();
-    }
+// hide scrape button if on page 'saved'
+if (window.location.href.includes('saved')) {
+    $('.scrape').hide();
+}
 
-    // keep scrollbar bottom
-    const contentBox = $('.note-content');
-    contentBox.scrollTop = contentBox.scrollHeight;
+// keep scrollbar bottom
+const contentBox = $('.note-content');
+contentBox.scrollTop = contentBox.scrollHeight;
 
-    // click events
-    $('.scrape').on('click', scrapeArticles);
-    $('.btn-save').on('click', saveArticle);
-    $('.btn-remove').on('click', removeArticle);
-    $('.btn-view-notes').on('click', viewNotes);
-    // handle click events for elements created dynamically
-    $(document).on('click', '.btn-save-note', saveNote);
-    $(document).on('click', '.material-icons', deleteNote);
-// });
+// click events
+$('.scrape').on('click', scrapeArticles);
+$('.btn-save').on('click', saveArticle);
+$('.btn-remove').on('click', removeArticle);
+$('.btn-view-notes').on('click', viewNotes);
+// handle click events for elements created dynamically
+$(document).on('click', '.btn-save-note', saveNote);
+$(document).on('click', '.material-icons', deleteNote);

@@ -1,6 +1,5 @@
 // dependencies
 const express = require('express');
-const bParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const eHandle = require('express-handlebars');
@@ -14,7 +13,7 @@ const app = express();
 // use morgan logger for logging requests
 app.use(logger('dev'));
 // use body-parser for handling form submissions
-app.use(bParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 // set static directory
 app.use(express.static('public'));
 // Set Handlebars as the default templating engine

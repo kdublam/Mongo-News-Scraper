@@ -1,20 +1,17 @@
 body{
-    background-color: black;
+    background: url(../img/bg2.jpg)  center center fixed; 
     font-family: 'Raleway', sans-serif;
     margin: 0px;
     height: 100%;
     width: 100%;
 }
 
-.navbar {
-    background-color: #DA291C;
+#linkColor{
+    color:white
 }
 
 .jumbotron {
     background: url(../img/ot.jpg) no-repeat center center fixed; 
-    /* -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover;  */
     min-height: 450px;
     background-size: 100%;
     color: white;
@@ -35,3 +32,4 @@ body{
     background-color: black;
     color: white;
 }
+
