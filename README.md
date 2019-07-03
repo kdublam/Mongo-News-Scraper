@@ -7,9 +7,11 @@ This app scrapes the Manchester United team page from BBC Sport for the latest n
 You can check out the here
 [Live Demo](https://reddevils-news-scraper.herokuapp.com/articles)!
 
-<img src="https://github.com/kdublam/Mongo-News-Scraper/blob/master/public/assets/img/home.png" width="400"/>
+### Screenshots
+<img src="https://github.com/kdublam/Mongo-News-Scraper/blob/master/public/assets/img/home.png" width="400"/><img src="https://github.com/kdublam/Mongo-News-Scraper/blob/master/public/assets/img/saved.png" width="400"/>
+
+#### Mobile page
 <img src="https://github.com/kdublam/Mongo-News-Scraper/blob/master/public/assets/img/mobile.png" width="400"/>
-<img src="https://github.com/kdublam/Mongo-News-Scraper/blob/master/public/assets/img/saved.png" width="400"/>
 
 
 ## Getting Started
